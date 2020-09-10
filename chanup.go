@@ -12,7 +12,7 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
- */
+*/
 
 package chanup
 
@@ -22,9 +22,9 @@ type ChanUp struct {
 	channel chan interface{}
 }
 
+// Status constants are used to express the outcome of an operation on channel with the Methods of ChanUp
 type Status int
 
-// Status constants are used to express the outcome of an operation on channel with the Methods of ChanUp
 const (
 	FAILED Status = iota
 	PUT
