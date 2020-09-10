@@ -1,3 +1,6 @@
+[![GoDoc](https://godoc.org/github.com/subbuv26/chanup?status.svg)](https://pkg.go.dev/github.com/subbuv26/chanup)
+[![Go Report Card](https://goreportcard.com/badge/github.com/subbuv26/chanup)](https://goreportcard.com/report/github.com/subbuv26/chanup)
+
 # ChanUp Channels
 A Wrapper on top of go channels which supports one complex use case. 
 A ChanUp channel buffer has a length of One.
