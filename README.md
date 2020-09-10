@@ -1,5 +1,6 @@
 [![GoDoc](https://godoc.org/github.com/subbuv26/chanup?status.svg)](https://pkg.go.dev/github.com/subbuv26/chanup)
 [![Go Report Card](https://goreportcard.com/badge/github.com/subbuv26/chanup)](https://goreportcard.com/report/github.com/subbuv26/chanup)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 # ChanUp Channels
 A Wrapper on top of go channels which supports one complex use case. 
