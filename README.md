@@ -9,3 +9,52 @@ The execution flow of no process gets blocked.
 - A producer Puts a value if channel is empty
 - A producer Updates channel with new value if it is holding a stale value.
 - A consumer gets a value if available.
+
+## Installation
+```
+go get github.com/subbuv26/chanup
+```
+
+## Usage
+### Example:
+```go
+package main
+
+import (
+ "fmt"
+ "github.com/subbuv26/chanup"
+)
+
+type testType struct {
+	a int
+	s string
+}
+
+func main() {
+	ch := chanup.GetChan()
+	status := ch.Put(testType{
+		a: 10,
+		s: "Sample",
+	})
+	if status == chanup.FAILED {
+		// Log
+	}
+	
+	testValue := testType{
+		a: 20,
+		s: "Sample2",
+	}
+	status = ch.Update(testValue)
+
+	if status != chanup.UPDATE {
+		// Log
+	}
+
+	val := ch.Get()
+	if val == nil {
+		// Log
+	}
+	tv := val.(testType)
+	fmt.Println(tv)
+}
+```
