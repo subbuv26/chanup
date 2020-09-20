@@ -26,8 +26,11 @@ type ChanUp struct {
 type Status int
 
 const (
+	// FAILED to put a value in ChanUp Channel
 	FAILED Status = iota
+	// PUT happens to be the result of API call of Put or Update
 	PUT
+	// UPDATE happens to be the result of API call of Update
 	UPDATE
 )
 

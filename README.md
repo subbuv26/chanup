@@ -20,13 +20,13 @@ go get github.com/subbuv26/chanup
 ```
 
 ## Usage
-### Example:
+### Example 1:
 ```go
 package main
 
 import (
- "fmt"
- "github.com/subbuv26/chanup"
+	"fmt"
+	"github.com/subbuv26/chanup"
 )
 
 type testType struct {
@@ -61,4 +61,51 @@ func main() {
 	tv := val.(testType)
 	fmt.Println(tv)
 }
+```
+
+### Example 2:
+```go
+package main
+
+import (
+	"fmt"
+	"github.com/subbuv26/chanup"
+	"time"
+)
+
+type testType struct {
+	a int
+	s string
+}
+
+func producer(chp *chanup.ChanUp) {
+	tv := testType{
+		100,
+		"sample",
+	}
+	for {
+		time.Sleep(time.Second)
+		chp.Update(tv)
+		tv.a += 1
+	}
+}
+
+func consumer(chc *chanup.ChanUp) {
+	for {
+		if val := chc.Get(); val != nil {
+			tv := val.(testType)
+			fmt.Println(tv)
+			time.Sleep(time.Second * 5)
+		}
+	}
+}
+
+func main() {
+	ch := chanup.GetChan()
+
+	go producer(ch)
+
+	consumer(ch)
+}
+
 ```
